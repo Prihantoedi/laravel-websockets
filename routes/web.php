@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use App\Events\HelloEvent;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/send-event', function(){
+    // broadcast(HelloEvent());
+    broadcast(new \App\Events\HelloEvent());
 });
