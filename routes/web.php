@@ -20,5 +20,6 @@ Route::get('/', function () {
 
 Route::get('/send-event', function(){
     // broadcast(HelloEvent());
-    broadcast(new \App\Events\HelloEvent());
+    $text = 'This is from pri event';
+    broadcast(new \App\Events\HelloEvent($text));
 });

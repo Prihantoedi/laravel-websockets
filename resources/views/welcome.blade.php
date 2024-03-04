@@ -31,6 +31,8 @@
                 </div>
             @endif
 
+            @vite('resources/css/app.css')
+
             <div class="max-w-7xl mx-auto p-6 lg:p-8">
                 <div class="flex justify-center">
                     <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto bg-gray-100 dark:bg-gray-900">
@@ -129,5 +131,17 @@
                 </div>
             </div>
         </div>
+        @vite('resources/js/app.js')
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) { 
+            //do work
+                Echo.channel(`hello-channel`)
+                    .listen('HelloEvent', (e) => {
+                        // console.log('Event from hello');
+                        console.log(e);
+                    });
+            });
+            
+        </script>
     </body>
 </html>

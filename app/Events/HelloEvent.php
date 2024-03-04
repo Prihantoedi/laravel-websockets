@@ -14,12 +14,15 @@ class HelloEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $testingTxt;
+
     /**
      * Create a new event instance.
      */
-    public function __construct()
+    public function __construct($testingTxt)
     {
         //
+        $this->testingTxt = $testingTxt;
     }
 
     /**
@@ -43,5 +46,12 @@ class HelloEvent implements ShouldBroadcast
         //     Channel('hello-channel')
         // ];
         return new Channel('hello-channel');
+    }
+
+    public function broadcastWith()
+    {
+        return [
+            'data' => $this->testingTxt
+        ];
     }
 }
