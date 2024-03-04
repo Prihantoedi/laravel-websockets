@@ -23,3 +23,7 @@ Route::get('/send-event', function(){
     $text = 'This is from pri event';
     broadcast(new \App\Events\HelloEvent($text));
 });
+
+Route::get('/user', function(){
+    return view('user');
+});
